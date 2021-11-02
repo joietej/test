@@ -81,7 +81,7 @@ const FileExplorerDialog: React.FunctionComponent<{
     setSelectedFiles([]);
     setSelectedFolder(data);
     setParentFolderId(null);
-    setVisitedFolderIds([])
+    setVisitedFolderIds([]);
     onClose();
   };
 
@@ -93,6 +93,7 @@ const FileExplorerDialog: React.FunctionComponent<{
     <Transition.Root show={open} as={Fragment}>
       <Dialog
         as="div"
+        data-testid="dialog"
         className="fixed inset-0 z-10 overflow-hidden"
         onClose={() => reset()}
       >
@@ -124,7 +125,7 @@ const FileExplorerDialog: React.FunctionComponent<{
                   defaultTitle="Root"
                   currentFolder={selectedFolder}
                   onGoToParentFolder={goToParentFolder}
-                  onReset={reset}                 
+                  onReset={reset}
                 />
               </Dialog.Title>
               <FileExplorerContent
