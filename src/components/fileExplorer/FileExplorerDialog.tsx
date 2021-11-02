@@ -9,7 +9,6 @@ const FileExplorerDialog: React.FunctionComponent<{
   onSelect: (files: Array<File | null>) => void;
   onClose: () => void;
 }> = ({ open, onSelect, onClose }) => {
-  console.log(open);
   const { data, error } = useFolders();
 
   const [selectedFolder, setSelectedFolder] = React.useState<Folder | null>(
@@ -75,6 +74,10 @@ const FileExplorerDialog: React.FunctionComponent<{
     setParentFolderId(null);
     onClose();
   };
+
+  if (error) {
+    return null;
+  }
 
   return (
     <Transition.Root show={open} as={Fragment}>
