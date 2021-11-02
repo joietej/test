@@ -1,4 +1,4 @@
-# Getting Started with Test solution
+# Getting Started with File Explorer Test solution
 
 ## Requirements
 - [Design](https://www.figma.com/proto/4v2vqqsnubWyedOb0bZuVU/File-Selector-case?node-id=1%3A1944&viewport=1477%2C398%2C1.2320507764816284&scaling=min-zoom&page-id=0%3A1)
@@ -18,6 +18,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
   - Fonts & Colors are not 100% matched with given design.
   - Used overlay to create model dialog.
   - By default dialog is centered on screen.
+  - Clicking outside the dialog closes the dialog
 ## Libraries
 
 This project uses libraries which are available for Vue and React for seamless transition.
