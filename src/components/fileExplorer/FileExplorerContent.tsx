@@ -39,6 +39,7 @@ const FileExplorerContent: React.FunctionComponent<{
       <ul className="overflow-y-scroll">
         {currentFolder?.folders?.map((f: Folder) => (
           <FolderInfo
+            key={f.id}
             folder={f}
             onFolderSelect={onFolderSelect}
             isVisited={isVisited(f.id)}
@@ -48,6 +49,7 @@ const FileExplorerContent: React.FunctionComponent<{
           ?.filter((f) => isValidFile(f))
           ?.map((f) => (
             <FileInfo
+              key = {f.id}
               file={f}
               isChecked={isChecked(f.id)}
               onFileSelect={onFileSelect}
