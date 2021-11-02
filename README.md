@@ -4,6 +4,9 @@
 - [Design](https://www.figma.com/proto/4v2vqqsnubWyedOb0bZuVU/File-Selector-case?node-id=1%3A1944&viewport=1477%2C398%2C1.2320507764816284&scaling=min-zoom&page-id=0%3A1)
 - [Use case](https://reoso.notion.site/File-Selector-case-7fb10e9fa9f242e9b30228dcaca7eb87)
 
+## CI/CD
+- [Project Vercel](https://vercel.com/new/import?s=https%3A%2F%2Fgithub.com%2Fjoietej%2Ftest) 
+- [Portal](https://test-sooty-phi-25.vercel.app/)
 ## Bootstrap
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

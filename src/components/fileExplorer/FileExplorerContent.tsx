@@ -17,23 +17,32 @@ const isValidFile = (file: File): boolean => {
 const FileExplorerContent: React.FunctionComponent<{
   selectedFiles: Array<File | null>;
   currentFolder: Folder | null;
+  visitedFolderIds: Array<string>;
   onFolderSelect: (folder: Folder | null) => void;
   onFileSelect: (checked: boolean, file: File | null) => void;
   onSelect: (files: Array<File | null>) => void;
 }> = ({
   selectedFiles,
   currentFolder,
+  visitedFolderIds,
   onFileSelect,
   onFolderSelect,
   onSelect,
 }) => {
   const isChecked = (id: string) =>
     selectedFiles.map((file) => file?.id).includes(id);
+
+  const isVisited = (id: string) => visitedFolderIds.includes(id);
+
   return (
     <div className="flex flex-col justify-between align-middle">
       <ul className="overflow-y-scroll">
         {currentFolder?.folders?.map((f: Folder) => (
-          <FolderInfo folder={f} onFolderSelect={onFolderSelect} />
+          <FolderInfo
+            folder={f}
+            onFolderSelect={onFolderSelect}
+            isVisited={isVisited(f.id)}
+          />
         ))}
         {currentFolder?.files
           ?.filter((f) => isValidFile(f))

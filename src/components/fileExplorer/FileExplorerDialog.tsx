@@ -20,6 +20,9 @@ const FileExplorerDialog: React.FunctionComponent<{
   const [selectedFiles, setSelectedFiles] = React.useState<Array<File | null>>(
     []
   );
+  const [visitedFolderIds, setVisitedFolderIds] = React.useState<Array<string>>(
+    []
+  );
   React.useEffect(() => {
     setSelectedFolder(data);
   }, [data]);
@@ -45,8 +48,14 @@ const FileExplorerDialog: React.FunctionComponent<{
   };
 
   const goToFolder = (folder: Folder | null) => {
-    setParentFolderId(folder?.parentFolderId || null);
-    setSelectedFolder(folder);
+    if (folder) {
+      setParentFolderId(folder.parentFolderId);
+      setSelectedFolder(folder);
+      setVisitedFolderIds([
+        ...visitedFolderIds.filter((id) => id !== folder.id),
+        folder.id,
+      ]);
+    }
   };
 
   const goToParentFolder = () => {
@@ -72,6 +81,7 @@ const FileExplorerDialog: React.FunctionComponent<{
     setSelectedFiles([]);
     setSelectedFolder(data);
     setParentFolderId(null);
+    setVisitedFolderIds([])
     onClose();
   };
 
@@ -114,7 +124,7 @@ const FileExplorerDialog: React.FunctionComponent<{
                   defaultTitle="Root"
                   currentFolder={selectedFolder}
                   onGoToParentFolder={goToParentFolder}
-                  onReset={reset}
+                  onReset={reset}                 
                 />
               </Dialog.Title>
               <FileExplorerContent
@@ -123,6 +133,7 @@ const FileExplorerDialog: React.FunctionComponent<{
                 onFileSelect={selectFile}
                 onFolderSelect={goToFolder}
                 onSelect={onSelect}
+                visitedFolderIds={visitedFolderIds}
               />
             </div>
           </Transition.Child>
