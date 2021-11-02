@@ -7,16 +7,22 @@ const FolderInfo: React.FunctionComponent<{
   onFolderSelect: (folder: Folder | null) => void;
 }> = ({ folder, onFolderSelect }) => {
   return (
-    <li
-      className="flex rounded p-2 mt-2 gap-2 align-middle justify-between cursor-pointer hover:bg-blue-50"
-      onClick={() => onFolderSelect(folder)}
-    >
-      <div className="flex gap-4 align-middle">
-        <FolderIcon className="h-6 w-6" />
-        <span className="text-sm font-light text-gray-600">{folder?.name}</span>
-      </div>
+    <li>
+      {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+      <a
+        href="#"
+        className="flex rounded p-2 mt-2 gap-2 align-middle justify-between cursor-pointer hover:bg-blue-50 bg-white visited:bg-blue-100"
+        onClick={() => onFolderSelect(folder)}
+      >
+        <div className="flex gap-4 align-middle">
+          <FolderIcon className="h-6 w-6" />
+          <span className="text-sm font-light text-gray-600">
+            {folder?.name}
+          </span>
+        </div>
 
-      <ChevronRightIcon className="h-6 w-6" />
+        <ChevronRightIcon className="h-6 w-6" />
+      </a>
     </li>
   );
 };

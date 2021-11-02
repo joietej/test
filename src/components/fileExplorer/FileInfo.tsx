@@ -9,8 +9,10 @@ const FileInfo: React.FunctionComponent<{
   isChecked: boolean;
   onFileSelect: (checked: boolean, file: File | null) => void;
 }> = ({ file, isChecked, onFileSelect }) => {
+  const classNames =
+    "flex rounded p-2 gap-2 mt-2 justify-between align-middle hover:bg-blue-50";
   return (
-    <li className="flex rounded p-2 gap-2 mt-2 justify-between align-middle hover:bg-blue-50">
+    <li className={`${classNames} ${isChecked ? "bg-blue-100" : "bg-white"}`}>
       <Switch
         data-testid="fileSwitchContainer"
         className="w-full"
@@ -20,7 +22,7 @@ const FileInfo: React.FunctionComponent<{
         <div className="w-full flex justify-between">
           <div className="flex align-middle">
             {file?.mimeType?.includes("image") ? (
-              <PhotographIcon data-testid='fileImageIcon' className="w-6 h-6" />
+              <PhotographIcon data-testid="fileImageIcon" className="w-6 h-6" />
             ) : (
               <DocumentIcon data-testid="fileDocIcon" className="w-6 h-6" />
             )}
@@ -28,7 +30,12 @@ const FileInfo: React.FunctionComponent<{
               {file?.name}
             </span>
           </div>
-          {isChecked && <CheckCircleIcon data-testid="fileCheckIcon" className="h-6 w-6  text-blue-600" />}
+          {isChecked && (
+            <CheckCircleIcon
+              data-testid="fileCheckIcon"
+              className="h-6 w-6  text-blue-600"
+            />
+          )}
         </div>
       </Switch>
     </li>

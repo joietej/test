@@ -6,8 +6,8 @@ module.exports = {
   },
   variants: {
     extend: {
-      opacity: ['disabled'],
-      backgroundColor: ['disabled']
+      opacity: ['disabled','visited'],
+      backgroundColor: ['disabled','visited']
     },
   },
   plugins: [],
