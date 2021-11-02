@@ -22,19 +22,31 @@ test("renders file with image icon", () => {
 });
 
 test("renders file with document icon", () => {
-  const doc = {...file, name:'file1.pdf', mimeType : 'document/pdf'}
+  const doc = { ...file, name: "file1.pdf", mimeType: "document/pdf" };
   render(<FileInfo file={doc} isChecked={true} onFileSelect={(f) => {}} />);
   const element = screen.getByTestId(/fileDocIcon/i);
   expect(element).toBeInTheDocument();
 });
 
-test("renders file with chekmark", () => {
+test("renders file with checked state background", () => {
+  render(<FileInfo file={file} isChecked={true} onFileSelect={(f) => {}} />);
+  const element = screen.getByRole(/li/i);
+  expect(element).toHaveClass("bg-blue-100");
+});
+
+test("renders file with unchecked state background", () => {
+  render(<FileInfo file={file} isChecked={false} onFileSelect={(f) => {}} />);
+  const element = screen.getByRole(/li/i);
+  expect(element).toHaveClass("bg-white");
+});
+
+test("renders file with checkmark", () => {
   render(<FileInfo file={file} isChecked={true} onFileSelect={(f) => {}} />);
   const checkMarkElement = screen.getByTestId(/fileCheckIcon/i);
   expect(checkMarkElement).toBeInTheDocument();
 });
 
-test("renders file without chekmark", () => {
+test("renders file without checkmark", () => {
   render(<FileInfo file={file} isChecked={false} onFileSelect={(f) => {}} />);
   const checkMarkElement = screen.queryByTestId(/fileCheckIcon/i);
   expect(checkMarkElement).toBeFalsy();
