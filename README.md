@@ -18,7 +18,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
   - Fonts & Colors are not 100% matched with given design.
   - Used overlay to create model dialog.
   - By default dialog is centered on screen.
-  - Clicking outside the dialog closes the dialog
+  - Clicking outside the dialog closes the dialog.
 ## Libraries
 
 This project uses libraries which are available for Vue and React for seamless transition.

@@ -4,7 +4,9 @@ import { File } from "./hooks/getFolders";
 
 function App() {
   const [showFileExplorer, setShowFileExplorer] = React.useState(false);
-  const [selectedFiles, setSelectedFiles] = React.useState<Array<File | null>>([]);
+  const [selectedFiles, setSelectedFiles] = React.useState<Array<File | null>>(
+    []
+  );
 
   const selectFiles = (files: Array<File | null>) => {
     setSelectedFiles(files);
@@ -26,9 +28,13 @@ function App() {
           Select Files
         </button>
         <ul className="flex flex-col mt-8 p-4 gap-2 w-64 items-start truncate">
-          <li className="text-sm font-semibold">Files Selected</li>
+          {selectedFiles.length > 0 && (
+            <li className="text-sm font-semibold">Files Selected</li>
+          )}
           {selectedFiles.map((file) => (
-            <li title={file?.name} className="text-sm font-light">{file?.name}</li>
+            <li title={file?.name} className="text-sm font-light">
+              {file?.name}
+            </li>
           ))}
         </ul>
       </div>
