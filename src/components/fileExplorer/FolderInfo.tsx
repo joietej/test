@@ -11,11 +11,12 @@ const FolderInfo: React.FunctionComponent<{
     "flex rounded p-2 mt-2 gap-2 align-middle justify-between cursor-pointer hover:bg-blue-50";
   return (
     <li
+      data-testid="folderContainer"
       className={`${classNames} ${isVisited ? "bg-blue-100" : "bg-white"}`}
       onClick={() => onFolderSelect(folder)}
     >
       <div className="flex gap-4 align-middle">
-        <FolderIcon className="h-6 w-6" />
+        <FolderIcon data-testid="folderIcon" className="h-6 w-6" />
         <span className="text-sm font-light text-gray-600">{folder?.name}</span>
       </div>
 
