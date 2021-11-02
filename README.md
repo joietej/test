@@ -1,6 +1,26 @@
-# Getting Started with Create React App
+# Getting Started with Test solution
 
+## Requirements
+- [Design](https://www.figma.com/proto/4v2vqqsnubWyedOb0bZuVU/File-Selector-case?node-id=1%3A1944&viewport=1477%2C398%2C1.2320507764816284&scaling=min-zoom&page-id=0%3A1)
+- [Use case](https://reoso.notion.site/File-Selector-case-7fb10e9fa9f242e9b30228dcaca7eb87)
+
+## Bootstrap
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Assumptions & Comments
+- Sample Data
+  - MimeType and file extension mismatched hence using file extension to determine file type.
+  - Image urls are not accusable hence using file icons instated of image.
+- UI / UX
+  - Fonts & Colors are not 100% matched with given design.
+  - Used overlay to create model dialog.
+  - By default dialog is centered on screen.
+## Libraries
+
+This project uses libraries which are available for Vue and React for seamless transition.
+- [Headeless UI](https://headlessui.dev)
+- [Tailwind CSS](https://tailwindcss.com)
+- [Testing Library](https://testing-library.com)
 
 ## Available Scripts
 
